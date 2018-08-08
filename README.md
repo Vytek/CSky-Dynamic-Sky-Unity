@@ -33,5 +33,5 @@ At the moment I am working on a project in godot engine, I will update the asset
 ![screenshot_3](https://user-images.githubusercontent.com/32694412/31422106-e531d618-ae08-11e7-910a-b0e655d9bab9.png)
 ![screenshot_4](https://user-images.githubusercontent.com/32694412/31422108-e55b21da-ae08-11e7-8a5e-bfe4531d8359.png)
 ![screenshot_5](https://user-images.githubusercontent.com/32694412/31422109-e5880c18-ae08-11e7-8c8e-c5a5cf04f1df.png)
-![screenshot_6](https://user-images.githubusercontent.com/32694412/31422165-3be2fe88-ae09-11e7-8998-a74ffc83dd1d.png)
+
 
