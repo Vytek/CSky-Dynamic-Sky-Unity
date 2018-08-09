@@ -1,4 +1,4 @@
-# CSky Dynamic Sky v1.0.3
+# CSky Dynamic Sky v1.0.4
 
 Dynamic Sky Sphere System for Unity 3d.
 
@@ -26,7 +26,7 @@ Contact/Support: acxstorage@gmail.com
 - When an element of the skysphere is selected to be reflected in the reflection probe, the skybox is not reflected.
 
 # Future
-At the moment I am working on a project in godot engine, I will update the asset until version 2.0 in a few months.
+At the moment I am working on a project in godot engine, I will return to work on this asset until version 2018.3 is available.
 
 ![screenshot_1](https://user-images.githubusercontent.com/32694412/31422103-e4df2f26-ae08-11e7-8a21-32fba3bd3e97.png)
 ![screenshot_2](https://user-images.githubusercontent.com/32694412/31422104-e509a8c8-ae08-11e7-9456-ce0c32c784c5.png)
