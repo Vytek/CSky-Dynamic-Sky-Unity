@@ -148,7 +148,7 @@ namespace AC.CSky
 
             if(m_SkySphere.MoonRayleigh)
             {
-                col += m_MoonColor.Evaluate(m_SkySphere.EvaluateTimeByMoon);
+                col += m_MoonColor.Evaluate(m_SkySphere.EvaluateTimeByMoon)*m_SkySphere.MoonPhasesIntensityMultiplier;
             }
 
 
@@ -159,7 +159,7 @@ namespace AC.CSky
             }
 
             m_CloudsMaterial.SetColor("_Color", col);
-            m_CloudsMaterial.SetFloat("_Intensity", intensity);
+            m_CloudsMaterial.SetFloat("_Intensity", intensity * m_SkySphere.EclipseMultiplier);
         }
     }
 }

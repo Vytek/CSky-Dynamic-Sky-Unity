@@ -22,7 +22,7 @@ namespace AC.CSky
 		#region |Fields|Celestials|
 
         // Sun.
-        [SerializeField] private Color m_SunLightColor     = new Color(1.0f, 0.84f, 0.61f, 1.0f);
+        [SerializeField] private Gradient m_SunLightColor     = new Gradient();
         [SerializeField] private float m_SunLightIntensity = 1.0f;
 
         [AC_CurveRange(0.0f, 0.0f, 1.0f, 1.0f)]
@@ -30,7 +30,7 @@ namespace AC.CSky
         [SerializeField] private float m_SunLightThreshold = 0.20f; // Disable sun light.
 
         // Moon.
-        [SerializeField] private Color m_MoonLightColor = new Color(0.901f, 0.951f, 1.0f, 1.0f);
+        [SerializeField] private Gradient m_MoonLightColor = new Gradient();
         [SerializeField] private float m_MoonLightIntensity = 0.25f;
 
         [AC_CurveRange(0.0f, 0.0f, 1.0f, 1.0f)]
@@ -276,18 +276,29 @@ namespace AC.CSky
         void UpdateCelestialsLighting(Vector3 sunLightPos, Vector3 moonLightPos)
         {
 
-            m_SunLight.transform.localPosition =  sunLightPos; 
+
+            //sunLightPos.y = sunLightPos.y <= 0.0f ? 0.0f : sunLightPos.y;
+
+           // if(sunLightPos.y > 0.0f)
+                m_SunLight.transform.localPosition = sunLightPos;
+
             m_SunLight.transform.LookAt(m_Transform, Vector3.forward);
+            
 
             m_SunLight.light.enabled   = SunLightEnable;
-            m_SunLight.light.color     = m_SunLightColor;
-            m_SunLight.light.intensity = m_SunLightIntensity * m_SunLightIntensityMultiplier.Evaluate(EvaluateTimeBySunAboveHorizon) * EclipseMultiplier; 
+            m_SunLight.light.color     = m_SunLightColor.Evaluate(EvaluateTimeBySunAboveHorizon);
+            m_SunLight.light.intensity = m_SunLightIntensity * m_SunLightIntensityMultiplier.Evaluate(EvaluateTimeBySun) * EclipseMultiplier; 
 
 
-            m_MoonLight.transform.localPosition = moonLightPos; 
+           // moonLightPos.y = moonLightPos.y <= 0.0f ? 0.0f : moonLightPos.y;
+
+           // if(moonLightPos.y > 0.0f)
+                m_MoonLight.transform.localPosition = moonLightPos; 
+
             m_MoonLight.transform.LookAt(m_Transform);
-            m_MoonLight.light.color     = m_MoonLightColor;
-            m_MoonLight.light.intensity = m_MoonLightIntensity * NightIntensity * m_MoonLightIntensityMultiplier.Evaluate(EvaluateTimeByMoonAboveHorizon);
+
+            m_MoonLight.light.color     = m_MoonLightColor.Evaluate(EvaluateTimeByMoonAboveHorizon);
+            m_MoonLight.light.intensity = m_MoonLightIntensity * NightIntensity * m_MoonLightIntensityMultiplier.Evaluate(EvaluateTimeByMoon);
             m_MoonLight.light.intensity *= MoonPhasesIntensityMultiplier;
 
             if(m_DisableMoonLightInDay)
@@ -419,7 +430,7 @@ namespace AC.CSky
 
         #region |Properties|Celestials|
 
-        public Color SunLightColor
+        public Gradient SunLightColor
         {
             get { return this.m_SunLightColor; }
             set { this.m_SunLightColor = value; }
@@ -437,7 +448,7 @@ namespace AC.CSky
             set { this.m_SunLightThreshold = value; }
         }
 
-        public Color MoonLightColor
+        public Gradient MoonLightColor
         {
             get { return this.m_MoonLightColor; }
             set { this.m_MoonLightColor = value; }

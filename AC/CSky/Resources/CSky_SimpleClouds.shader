@@ -115,20 +115,34 @@ Shader "AC/CSky/Simple Clouds"
 		
 
 		
-			half4 col = (nt + nt2)*0.5;
+			half4 col = (nt + nt2);
+
+			//col = saturate(col);
+
+			half a = saturate(smoothstep(col.a,0,0)-smoothstep(0, col.a,_Coverage));
+
+			
+
+			//float d = 1.0-exp(-col *2);
 
 
-			col = saturate(col);
+			//col = lerp(col*_Intensity,0, d);
 
-				
-			half a = pow(col.a, _Coverage) * HORIZON_FADE(worldPos.y);
+			col = 1.0-exp(-col*2);
 
-			col.rgb *=  _Intensity;
+			col *= _Intensity;
 
-			//ColorCorrection(col.rgb);
+
+			a *=  HORIZON_FADE(worldPos.y);
+
+			
+
+		
+
+			ColorCorrection(col.rgb);
 			//=======================================================================
 
-			return half4(col.rgb*_Color,a);
+			return half4( col.rgb *_Color.rgb, a  );
 			//=======================================================================
 		}
 	ENDCG
@@ -145,6 +159,7 @@ Shader "AC/CSky/Simple Clouds"
 			Cull Front 
 			ZWrite Off 
 			ZTest LEqual  
+			//Blend One One
 			Blend SrcAlpha OneMinusSrcAlpha 
 			Fog{ Mode Off }
 			//==========================================================================================
@@ -155,6 +170,7 @@ Shader "AC/CSky/Simple Clouds"
 				#pragma vertex   vert
 				#pragma fragment frag
 				#pragma multi_compile __ CSky_GAMMA_COLOR_SPACE
+				#pragma multi_compile __ CSky_HDR
 
 			ENDCG
 

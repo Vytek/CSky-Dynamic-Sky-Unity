@@ -44,14 +44,14 @@ namespace AC.CSky
 
         // Sun.
         [SerializeField, Range(0.0f, 100f)] private float m_SunBrightness = 30f;
-        [SerializeField] private Color m_SunAtmosphereTint = Color.white;
+        [SerializeField] private Gradient m_SunAtmosphereTint = new Gradient();
         [SerializeField, Range(0.0f, 1f)] private float m_SunIntensityFactor = 0.25f; // Only in preetham model.
 
         // Moon.
         [SerializeField] private bool m_MoonRayleigh = true; // Moon affects the atmosphere.
 
         [SerializeField, Range(0.0f, 1f)] private float m_MoonBrightness = 0.3f;
-        [SerializeField] private Color m_MoonAtmosphereTint = new Color(0.1f, 0.1f, 0.1f, 1.0f);
+        [SerializeField] private Gradient m_MoonAtmosphereTint = new Gradient();
         [SerializeField, Range(0.0f, 1f)] private float m_MoonIntensityFactor = 0.20f;
 
         #endregion
@@ -65,14 +65,18 @@ namespace AC.CSky
         [SerializeField, Range(0.0f, 1f)] private float m_Turbidity = 0.1f; // Only in preetham model.
 
         // Sun
-        [SerializeField] private Color m_SunMieColor = new Color(1.0f, 0.84f, 0.61f, 1.0f);
-        [SerializeField, Range(0.0f, 0.999f)] private float m_SunMieAnisotropy = 0.75f;
-        [SerializeField] private float m_SunMieScattering = 0.5f;
+        [SerializeField] private Gradient m_SunMieColor = new Gradient();
+        [SerializeField, Range(0.0f, 0.999f)] private float m_SunMieAnisotropy = 0.85f;
+
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 5f)]
+        [SerializeField] private AnimationCurve m_SunMieScattering = AnimationCurve.Linear(0.0f,1.0f,1.0f,1.0f);
 
         // Moon.
-        [SerializeField] private Color m_MoonMieColor = new Color(1.0f, 0.95f, 0.83f, 1.0f);
-        [SerializeField, Range(0.0f, 0.999f)] private float m_MoonMieAnisotropy = 0.94f;
-        [SerializeField] private float m_MoonMieScattering = 0.2f;
+        [SerializeField] private Gradient m_MoonMieColor = new Gradient();
+        [SerializeField, Range(0.0f, 0.999f)] private float m_MoonMieAnisotropy = 0.75f;
+
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 5f)]
+        [SerializeField] private AnimationCurve m_MoonMieScattering = AnimationCurve.Linear(0.0f,0.5f,1.0f,0.5f);
 
         #endregion
 
@@ -166,22 +170,22 @@ namespace AC.CSky
 
 
             // Set sun mie.
-            Shader.SetGlobalColor("CSky_SunMieColor", m_SunMieColor);
+            Shader.SetGlobalColor("CSky_SunMieColor", m_SunMieColor.Evaluate(EvaluateTimeBySunAboveHorizon));
             Shader.SetGlobalVector("CSky_SunBetaMiePhase", BetaMiePhase(m_SunMieAnisotropy, true));
-            Shader.SetGlobalFloat("CSky_SunMieScattering", m_SunMieScattering);
+            Shader.SetGlobalFloat("CSky_SunMieScattering", m_SunMieScattering.Evaluate(EvaluateTimeBySunAboveHorizon));
 
 
             // Set moon mie.
-            Shader.SetGlobalColor("CSky_MoonMieColor", m_MoonMieColor);
+            Shader.SetGlobalColor("CSky_MoonMieColor", m_MoonMieColor.Evaluate(EvaluateTimeByMoonAboveHorizon));
             Shader.SetGlobalVector("CSky_MoonBetaMiePhase", BetaMiePhase(m_MoonMieAnisotropy, false));
-            Shader.SetGlobalFloat("CSky_MoonMieScattering", m_MoonMieScattering * MoonPhasesIntensityMultiplier);
+            Shader.SetGlobalFloat("CSky_MoonMieScattering", m_MoonMieScattering.Evaluate(EvaluateTimeByMoonAboveHorizon) * MoonPhasesIntensityMultiplier);
 
 
             // Set tint.
-            Shader.SetGlobalColor("CSky_SunAtmosphereTint", m_SunAtmosphereTint);
+            Shader.SetGlobalColor("CSky_SunAtmosphereTint", m_SunAtmosphereTint.Evaluate(EvaluateTimeBySunAboveHorizon));
 
 
-            Shader.SetGlobalColor("CSky_MoonAtmosphereTint", m_MoonRayleigh ? m_MoonAtmosphereTint * m_MoonBrightness *  MoonPhasesIntensityMultiplier : m_MoonAtmosphereTint* m_MoonBrightness );
+            Shader.SetGlobalColor("CSky_MoonAtmosphereTint", m_MoonRayleigh ? m_MoonAtmosphereTint.Evaluate(EvaluateTimeByMoonAboveHorizon) * m_MoonBrightness *  MoonPhasesIntensityMultiplier : m_MoonAtmosphereTint.Evaluate(EvaluateTimeBySunBellowHorizon) * m_MoonBrightness );
 
 
             // Set exponent.
@@ -442,7 +446,7 @@ namespace AC.CSky
             set { this.m_SunBrightness = value; }
         }
 
-        public Color SunAtmosphereTint
+        public Gradient SunAtmosphereTint
         {
             get { return this.m_SunAtmosphereTint; }
             set { this.m_SunAtmosphereTint = value; }
@@ -460,7 +464,7 @@ namespace AC.CSky
             set { this.m_MoonBrightness = value; }
         }
 
-        public Color MoonAtmosphereTint
+        public Gradient MoonAtmosphereTint
         {
             get { return this.m_MoonAtmosphereTint; }
             set { this.m_MoonAtmosphereTint = value; }
@@ -485,7 +489,7 @@ namespace AC.CSky
             set { this.m_Turbidity = value; }
         }
 
-        public Color SunMieColor
+        public Gradient SunMieColor
         {
             get { return this.m_SunMieColor; }
             set { this.m_SunMieColor = value; }
@@ -497,14 +501,14 @@ namespace AC.CSky
             set { this.m_SunMieAnisotropy = value; }
         }
 
-        public float SunMieScattering
+        public AnimationCurve SunMieScattering
         {
             get { return this.m_SunMieScattering; }
             set { this.m_SunMieScattering = value; }
         }
 
 
-        public Color MoonMieColor
+        public Gradient MoonMieColor
         {
             get { return this.m_SunMieColor; }
             set { this.m_SunMieColor = value; }
@@ -516,7 +520,7 @@ namespace AC.CSky
             set { this.m_SunMieAnisotropy = value; }
         }
 
-        public float MoonMieScattering
+        public AnimationCurve MoonMieScattering
         {
             get { return this.m_SunMieScattering; }
             set { this.m_SunMieScattering = value; }

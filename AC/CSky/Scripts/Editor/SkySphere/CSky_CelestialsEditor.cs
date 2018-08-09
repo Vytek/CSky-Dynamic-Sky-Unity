@@ -156,12 +156,6 @@ namespace AC.CSky
                     EditorGUILayout.PropertyField(m_BackgroundColor, new GUIContent("Background Color"));
                     EditorGUILayout.PropertyField(m_BackgroundIntensity, new GUIContent("Background Intensity"));
 
-                    EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-                        EditorGUILayout.PropertyField(m_BackgroundIntensityMultiplier, new GUIContent("Background Intensity Multiplier"));
-                        EditorGUILayout.HelpBox(EvaluateByFullSun, MessageType.Info);
-
-                    EditorGUILayout.EndVertical();
 
                 EditorGUILayout.Separator();
 
@@ -177,13 +171,7 @@ namespace AC.CSky
                     EditorGUILayout.PropertyField(m_StarsFieldColor, new GUIContent("Stars Field Color"));
                     EditorGUILayout.PropertyField(m_StarsFieldIntensity, new GUIContent("Stars Field Intensity"));
 
-                    EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-                        EditorGUILayout.PropertyField(m_StarsFieldIntensityMultiplier, new GUIContent("Stars Field Intensity Multiplier"));
-                        EditorGUILayout.HelpBox(EvaluateByFullSun, MessageType.Info);
-
-                    EditorGUILayout.EndVertical();
-
+                 
                     EditorGUILayout.PropertyField(m_StarsFieldScintillation, new GUIContent("Stars Field Scintillation"));
                     EditorGUILayout.PropertyField(m_StarsFieldScintillationSpeed, new GUIContent("Stars Field Scintillation Speed"));
                     AC_EditorGUIUtility.Separator(2);

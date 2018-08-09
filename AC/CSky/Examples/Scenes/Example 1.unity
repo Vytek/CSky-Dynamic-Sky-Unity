@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.2921107, g: 0.45575306, b: 0.74005115, a: 1}
-  m_AmbientEquatorColor: {r: 0.8248458, g: 1.0699564, b: 1.2328919, a: 1.6574316}
-  m_AmbientGroundColor: {r: 0.4649016, g: 0.42970645, b: 0.4063946, a: 1.6574316}
+  m_AmbientSkyColor: {r: 0.29211962, g: 0.4557664, b: 0.74007344, a: 1}
+  m_AmbientEquatorColor: {r: 0.71662223, g: 0.89974934, b: 0.98529065, a: 1}
+  m_AmbientGroundColor: {r: 0.45203662, g: 0.4186465, b: 0.39663377, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1421002601}
-  m_IndirectSpecularColor: {r: 0.08442827, g: 0.109976046, b: 0.1504899, a: 1}
+  m_IndirectSpecularColor: {r: 0.102118544, g: 0.12889117, b: 0.16821146, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -215,13 +215,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 548601246}
-  m_LocalRotation: {x: -0.0128082745, y: -0.20618644, z: -0.0026991256, w: 0.9784252}
-  m_LocalPosition: {x: 765.2, y: 23.5, z: 109.27}
+  m_LocalRotation: {x: 0, y: 0.0192847, z: 0, w: 0.99981403}
+  m_LocalPosition: {x: 764.86, y: 50.2, z: 107.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.5, y: -23.8, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 2.21, z: 0}
 --- !u!1 &620017101
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,9 +251,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12d049f29ec34de1a78b3a642573d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SolarEclipseThreshold: 0.2
+  m_SolarEclipseThreshold: 0.05
   m_HDR: 0
-  m_Exposure: 1.3
+  m_Exposure:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   m_AtmosphereMeshQuality: 2
   m_AtmosphereQuality: 0
   m_AtmosphereShader: 1
@@ -262,20 +279,178 @@ MonoBehaviour:
   m_WavelengthB: 440
   m_AtmosphereThickness: 1
   m_SunBrightness: 30
-  m_SunAtmosphereTint: {r: 1, g: 1, b: 1, a: 1}
-  m_SunIntensityFactor: 0.25
+  m_SunAtmosphereTint:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0.9919649, b: 0.9857915, a: 1}
+    key2: {r: 1, g: 0.6964503, b: 0.46323532, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 41249
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  m_SunIntensityFactor: 0.3
   m_MoonRayleigh: 1
   m_MoonBrightness: 0.1
-  m_MoonAtmosphereTint: {r: 1, g: 1, b: 1, a: 1}
+  m_MoonAtmosphereTint:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   m_MoonIntensityFactor: 0.2
   m_Mie: 0.01
   m_Turbidity: 0.1
-  m_SunMieColor: {r: 1, g: 0.5225152, b: 0.21323532, a: 1}
-  m_SunMieAnisotropy: 0.85
-  m_SunMieScattering: 1
-  m_MoonMieColor: {r: 1, g: 0.95, b: 0.83, a: 1}
+  m_SunMieColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0.43448272, b: 0, a: 1}
+    key2: {r: 1, g: 0.6964503, b: 0.46323532, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_SunMieAnisotropy: 0.8
+  m_SunMieScattering:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.71875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.7961019
+      value: 0.71875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.89954245
+      value: 2.6875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 2.71875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  m_MoonMieColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0.8902231, b: 0.80588233, a: 1}
+    key2: {r: 1, g: 0.57170385, b: 0.24264705, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 30262
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   m_MoonMieAnisotropy: 0.882
-  m_MoonMieScattering: 1.15
+  m_MoonMieScattering:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   m_AtmosphereExponent: 1.5
   m_CameraHeight: 0.0001
   m_HorizonOffset: 0.01
@@ -318,37 +493,36 @@ MonoBehaviour:
     meshRenderer: {fileID: 841316038}
   m_BackgroundMeshQuality: 0
   m_BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BackgroundIntensity: 0.01
-  m_BackgroundIntensityMultiplier:
+  m_BackgroundIntensity:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.001499176
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.40029985
+      time: 0.49773082
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.49925816
-      value: 0
+      time: 0.5532399
+      value: 0.34375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.6011994
-      value: 1
+      value: 0.375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1
+      value: 0.375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -356,9 +530,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   m_StarsFieldMeshQuality: 2
-  m_StarsFieldColor: {r: 0.5661765, g: 1, b: 1, a: 1}
-  m_StarsFieldIntensity: 1
-  m_StarsFieldIntensityMultiplier:
+  m_StarsFieldColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StarsFieldIntensity:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
@@ -368,20 +541,20 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.49623692
+      time: 0.5007458
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.6012111
-      value: 1
+      time: 0.5967016
+      value: 1.4375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1
+      value: 1.4375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -390,18 +563,182 @@ MonoBehaviour:
     m_RotationOrder: 0
   m_StarsFieldScintillation: 0.7
   m_StarsFieldScintillationSpeed: 0.5
-  m_SunPI: 1.2344182
-  m_SunTheta: 2.0065436
-  m_SunSize: 0.07
-  m_SunColor: {r: 1, g: 0.798, b: 0.316, a: 1}
-  m_SunIntensity: 1
+  m_SunPI: -1.2134273
+  m_SunTheta: 1.843039
+  m_SunSize:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.046875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.69866467
+      value: 0.053115845
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8510515
+      value: 0.102362275
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.10311508
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  m_SunColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.6827587, b: 0, a: 1}
+    key1: {r: 1, g: 0.39310342, b: 0, a: 1}
+    key2: {r: 1, g: 0.51724136, b: 0, a: 0.8901961}
+    key3: {r: 1, g: 1, b: 1, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_SunIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.9375
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.9375
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   m_MoonMeshQuality: 0
-  m_MoonPI: -1.8651704
-  m_MoonTheta: 1.2874458
-  m_MoonSize: 0.028
-  m_MoonColor: {r: 1, g: 0.872, b: 0.661, a: 1}
-  m_MoonIntensity: 1
-  m_SunLightColor: {r: 1, g: 0.84, b: 0.61, a: 1}
+  m_MoonPI: 1.862685
+  m_MoonTheta: 1.2523217
+  m_MoonSize:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.031253815
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.031253815
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  m_MoonColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.9616633, b: 0.8014706, a: 1}
+    key1: {r: 1, g: 0.9337537, b: 0.75903976, a: 1}
+    key2: {r: 1, g: 0.4344828, b: 0, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  m_MoonIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 2.8125
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 2.8125
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  m_SunLightColor:
+    serializedVersion: 2
+    key0: {r: 0.99264705, g: 0.8953959, b: 0.6860943, a: 1}
+    key1: {r: 1, g: 0.5051724, b: 0.125, a: 1}
+    key2: {r: 1, g: 0.5342799, b: 0.17647058, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   m_SunLightIntensity: 1
   m_SunLightIntensityMultiplier:
     serializedVersion: 2
@@ -413,8 +750,14 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.7991115
+      time: 0.4452225
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5483741
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -428,7 +771,35 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   m_SunLightThreshold: 0.2
-  m_MoonLightColor: {r: 0.901, g: 0.951, b: 1, a: 1}
+  m_MoonLightColor:
+    serializedVersion: 2
+    key0: {r: 0.7410697, g: 0.8705272, b: 1, a: 1}
+    key1: {r: 0.74264705, g: 0.872211, b: 1, a: 1}
+    key2: {r: 1, g: 0.6964503, b: 0.46323532, a: 0.8901961}
+    key3: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key4: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key5: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key6: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    key7: {r: 0, g: 0.25882354, b: 0.7882353, a: 0.8901961}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   m_MoonLightIntensity: 0.25
   m_MoonLightIntensityMultiplier:
     serializedVersion: 2
@@ -440,8 +811,14 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.80209893
+      time: 0.449804
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5481045
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -471,13 +848,13 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.49926203
+      time: 0.54424495
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.60569715
+      time: 0.59822035
       value: 1
       inSlope: 0
       outSlope: 0
@@ -738,8 +1115,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 620017101}
-  m_LocalRotation: {x: 0, y: 0.38831988, z: 0, w: 0.9215247}
-  m_LocalPosition: {x: 765.7221, y: 24.525835, z: 110.56424}
+  m_LocalRotation: {x: 0, y: 0.45554492, z: 0, w: 0.89021283}
+  m_LocalPosition: {x: 765.8978, y: 51.2, z: 108.66069}
   m_LocalScale: {x: 1900, y: 1900, z: 1900}
   m_Children:
   - {fileID: 1135219430}
@@ -752,7 +1129,7 @@ Transform:
   - {fileID: 1471795486}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 45.7, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 54.2, z: 0}
 --- !u!114 &620017104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,17 +1153,17 @@ MonoBehaviour:
   m_Color:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 1, g: 0.78306293, b: 0.31617647, a: 0}
+    key1: {r: 0.8602941, g: 0.8602941, b: 0.8602941, a: 1}
+    key2: {r: 1, g: 0.6340771, b: 0.35294116, a: 0}
     key3: {r: 0.03676468, g: 0.03676468, b: 0.03676468, a: 0}
     key4: {r: 0.035172045, g: 0.035172045, b: 0.035172045, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 29491
+    ctime1: 18119
     ctime2: 32768
-    ctime3: 36044
+    ctime3: 41634
     ctime4: 65535
     ctime5: 0
     ctime6: 0
@@ -807,13 +1184,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1.8125
+      value: 1.46875
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1.8125
+      value: 1.46875
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -822,8 +1199,8 @@ MonoBehaviour:
     m_RotationOrder: 0
   m_MoonColor:
     serializedVersion: 2
-    key0: {r: 0.18166089, g: 0.20866245, b: 0.2352941, a: 1}
-    key1: {r: 0.1685359, g: 0.19589533, b: 0.2232395, a: 1}
+    key0: {r: 0.1685359, g: 0.2427863, b: 0.317525, a: 1}
+    key1: {r: 0.18155278, g: 0.25991595, b: 0.33823532, a: 1}
     key2: {r: 0.16911763, g: 0.15215442, b: 0.115646616, a: 0}
     key3: {r: 0.03676468, g: 0.03676468, b: 0.03676468, a: 0}
     key4: {r: 0.035172045, g: 0.035172045, b: 0.035172045, a: 0}
@@ -880,12 +1257,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ProgressTime: 1
-  m_Timeline: 20.68
+  m_Timeline: 6.5
   m_UseDayNightLength: 1
   m_DayRange: {x: 6, y: 19}
-  m_DayLengthInMinutes: 15
-  m_NightLengthInMinutes: 15
-  m_Day: 30
+  m_DayLengthInMinutes: 0.5
+  m_NightLengthInMinutes: 0.5
+  m_Day: 31
   m_Month: 12
   m_Year: 2017
   m_SyncWithSystem: 0
@@ -927,7 +1304,7 @@ MonoBehaviour:
     m_Latitude: 14
     m_Longitude: -54
     m_UTC: -2.4
-    m_LST: 804.7399
+    m_LST: 592.44336
 --- !u!1 &649037150
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1370,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649037150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -11.89, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1179,8 +1556,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.901, g: 0.951, b: 1, a: 1}
-  m_Intensity: 0.11989355
+  m_Color: {r: 0.8388337, g: 0.80651975, b: 0.7993822, a: 1}
+  m_Intensity: 0.12827958
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1212,8 +1589,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928480313}
-  m_LocalRotation: {x: 0.11340803, y: 0.5897907, z: -0.084122345, w: 0.79511577}
-  m_LocalPosition: {x: -0.9188233, y: 0.27957416, z: -0.27857122}
+  m_LocalRotation: {x: 0.1272362, y: -0.5892075, z: 0.09462496, w: 0.79227}
+  m_LocalPosition: {x: 0.9095432, y: 0.31311825, z: -0.27329114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 620017103}
@@ -1283,9 +1660,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 976683943}
-  m_LocalRotation: {x: 0.11340803, y: 0.5897907, z: -0.084122345, w: 0.79511577}
-  m_LocalPosition: {x: -0.9188233, y: 0.27957416, z: -0.27857122}
-  m_LocalScale: {x: 0.028, y: 0.028, z: 0.028}
+  m_LocalRotation: {x: 0.1272362, y: -0.5892075, z: 0.09462496, w: 0.79227}
+  m_LocalPosition: {x: 0.9095432, y: 0.31311825, z: -0.27329114}
+  m_LocalScale: {x: 0.031253815, y: 0.031253815, z: 0.031253815}
   m_Children: []
   m_Father: {fileID: 620017103}
   m_RootOrder: 4
@@ -1354,7 +1731,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1099041615}
-  m_LocalRotation: {x: 0.593642, y: -0.20886284, z: 0.1631815, w: -0.7598272}
+  m_LocalRotation: {x: -0.008363153, y: 0.78793806, z: -0.61560464, w: 0.010704336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1425,7 +1802,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1135219427}
-  m_LocalRotation: {x: 0.593642, y: -0.20886284, z: 0.1631815, w: -0.7598272}
+  m_LocalRotation: {x: -0.008363153, y: 0.78793806, z: -0.61560464, w: 0.010704336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1524,9 +1901,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295515749}
-  m_LocalRotation: {x: -0.5392512, y: 0.5990172, z: 0.5497894, w: -0.21935849}
-  m_LocalPosition: {x: 0.8557482, y: -0.422088, z: 0.29922694}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalRotation: {x: 0.24368432, y: 0.7804368, z: 0.32143414, w: 0.4777201}
+  m_LocalPosition: {x: -0.9023176, y: -0.26889223, z: 0.33692726}
+  m_LocalScale: {x: 0.10311508, y: 0.10311508, z: 0.10311508}
   m_Children: []
   m_Father: {fileID: 620017103}
   m_RootOrder: 2
@@ -1590,13 +1967,13 @@ ReflectionProbe:
   m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
-  m_FarClip: 1000
+  m_FarClip: 2000
   m_ShadowDistance: 1000
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_IntensityMultiplier: 1
   m_BlendDistance: 1
   m_HDR: 1
@@ -1630,7 +2007,7 @@ Light:
   m_Enabled: 0
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.84, b: 0.61, a: 1}
+  m_Color: {r: 1, g: 0.5051724, b: 0.125, a: 1}
   m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
@@ -1663,8 +2040,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1421002600}
-  m_LocalRotation: {x: -0.5392512, y: 0.5990172, z: 0.5497894, w: -0.21935849}
-  m_LocalPosition: {x: 0.8557482, y: -0.422088, z: 0.29922694}
+  m_LocalRotation: {x: 0.24368432, y: 0.7804368, z: 0.32143414, w: 0.4777201}
+  m_LocalPosition: {x: -0.9023176, y: -0.26889223, z: 0.33692726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 620017103}
@@ -1820,8 +2197,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580747386}
-  m_LocalRotation: {x: -0, y: -0.25763035, z: -0, w: 0.96624357}
-  m_LocalPosition: {x: 761.6316, y: 21.8, z: 115.83535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 765.3, y: 48.63, z: 112.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2145980327}

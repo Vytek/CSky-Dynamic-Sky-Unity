@@ -25,12 +25,10 @@ namespace AC.CSky
   		[SerializeField] private CSky_Quality3 m_BackgroundMeshQuality = CSky_Quality3.Low;
 
         // Color.
-        [SerializeField] private Color m_BackgroundColor     = Color.white;
-        [SerializeField] private float m_BackgroundIntensity = 0.05f;
-
-		// Curve multiplier.
-        [AC_CurveRange(0.0f, 0.0f, 1.0f, 1.0f)]
-        [SerializeField] private AnimationCurve m_BackgroundIntensityMultiplier = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
+        [SerializeField] private Color m_BackgroundColor = Color.white;
+      
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 5.0f)]
+        [SerializeField] private AnimationCurve m_BackgroundIntensity = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
 
 		#endregion
 
@@ -40,12 +38,10 @@ namespace AC.CSky
 		[SerializeField] private CSky_Quality3 m_StarsFieldMeshQuality = CSky_Quality3.High; 
 
         // Color.
-        [SerializeField] private Color m_StarsFieldColor     = Color.white;
-        [SerializeField] private float m_StarsFieldIntensity = 0.3f;
+        [SerializeField] private Color m_StarsFieldColor = Color.white;
 
-		// Curve multiplier.
-        [AC_CurveRange(0.0f, 0.0f, 1.0f, 1.0f)]
-        [SerializeField] private AnimationCurve m_StarsFieldIntensityMultiplier = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 5.0f)]
+        [SerializeField] private AnimationCurve m_StarsFieldIntensity = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
 
         // Scintillation.
         [SerializeField, Range(0.0f, 1.0f)] private float m_StarsFieldScintillation = 0.7f;
@@ -60,11 +56,14 @@ namespace AC.CSky
         [SerializeField, Range(-Mathf.PI, Mathf.PI)] private float m_SunTheta = 0.70f;
 
 		// Size.
- 		[SerializeField, Range(0.0f, 1.0f)] private float m_SunSize = 0.07f;
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 0.5f)]
+ 		[SerializeField] private AnimationCurve m_SunSize = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 0.7f);
 
 		// Color.
-        [SerializeField] private Color m_SunColor = new Color(1.0f, 0.798f, 0.316f, 1.0f);
-        [SerializeField] private float m_SunIntensity = 1.0f;
+        [SerializeField] Gradient m_SunColor = new Gradient();
+
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 5.0f)]
+        [SerializeField] private AnimationCurve m_SunIntensity = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
 
 		#endregion
 
@@ -78,11 +77,14 @@ namespace AC.CSky
         [SerializeField, Range(-Mathf.PI, Mathf.PI)] private float m_MoonTheta = -1.19f;
 
 		// Size.
-  		[SerializeField, Range(0.0f, 1.0f)] private float m_MoonSize = 0.02f;
+        [AC_CurveRange(0.0f, 0.0f, 1.0f, 0.5f)]
+  		[SerializeField] private AnimationCurve m_MoonSize  = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 0.02f);
 
         // Color.
-        [SerializeField] private Color m_MoonColor = new Color(1.0f, 0.872f, 0.661f, 1.0f);
-        [SerializeField] private float m_MoonIntensity = 1.0f;
+        [SerializeField] private Gradient m_MoonColor = new Gradient();
+
+         [AC_CurveRange(0.0f, 0.0f, 1.0f, 5f)]
+        [SerializeField] private AnimationCurve m_MoonIntensity = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
 
 		#endregion
 
@@ -118,14 +120,14 @@ namespace AC.CSky
             {
 
                 m_Background.meshRenderer.sharedMaterial.SetColor("_Color", m_BackgroundColor);
-                m_Background.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_BackgroundIntensity * m_BackgroundIntensityMultiplier.Evaluate(EvaluateTimeBySun));
+                m_Background.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_BackgroundIntensity.Evaluate(EvaluateTimeBySun));
             }
 
             // Stars field.
             if(m_StarsField.meshRenderer.enabled)
             {
                 m_StarsField.meshRenderer.sharedMaterial.SetColor("_Color", m_StarsFieldColor);
-                m_StarsField.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_StarsFieldIntensity * m_StarsFieldIntensityMultiplier.Evaluate(EvaluateTimeBySun));
+                m_StarsField.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_StarsFieldIntensity.Evaluate(EvaluateTimeBySun));
                 m_StarsField.meshRenderer.sharedMaterial.SetFloat("_Scintillation", m_StarsFieldScintillation);
                 m_StarsField.meshRenderer.sharedMaterial.SetFloat("_ScintillationSpeed", m_StarsFieldScintillationSpeed);
             }
@@ -134,25 +136,25 @@ namespace AC.CSky
             if(m_Sun.meshRenderer.enabled)
             {
 
-                m_Sun.transform.localScale    = Vector3.one * m_SunSize;
+                m_Sun.transform.localScale    = Vector3.one * m_SunSize.Evaluate(EvaluateTimeBySunAboveHorizon);
                 m_Sun.transform.localPosition =  sunPos; //CSky_MathV3.SphericalToCartesian(m_SunTheta, m_SunPI);
                 m_Sun.transform.LookAt(m_Transform, Vector3.forward);
 
                 Shader.SetGlobalVector("CSky_SunDirection", SunDirection);
-                m_Sun.meshRenderer.sharedMaterial.SetColor("_Color", m_SunColor);
-                m_Sun.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_SunIntensity);
+                m_Sun.meshRenderer.sharedMaterial.SetColor("_Color", m_SunColor.Evaluate(EvaluateTimeBySunAboveHorizon));
+                m_Sun.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_SunIntensity.Evaluate(EvaluateTimeBySunAboveHorizon));
             }
 
             // Moon.
             if(m_Moon.meshRenderer.enabled)
             {
-                m_Moon.transform.localScale    = Vector3.one * m_MoonSize;
+                m_Moon.transform.localScale    = Vector3.one * m_MoonSize.Evaluate(EvaluateTimeByMoon);
                 m_Moon.transform.localPosition = moonPos; //CSky_MathV3.SphericalToCartesian(m_MoonTheta, m_MoonPI);
                 m_Moon.transform.LookAt(m_Transform);
 
                 Shader.SetGlobalVector("CSky_MoonDirection", MoonDirection);
-                m_Moon.meshRenderer.sharedMaterial.SetColor("_Color", m_MoonColor);
-                m_Moon.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_MoonIntensity);
+                m_Moon.meshRenderer.sharedMaterial.SetColor("_Color", m_MoonColor.Evaluate(EvaluateTimeByMoonAboveHorizon));
+                m_Moon.meshRenderer.sharedMaterial.SetFloat("_Intensity", m_MoonIntensity.Evaluate(EvaluateTimeByMoon));
             }
 
 		}
@@ -173,7 +175,7 @@ namespace AC.CSky
             set { this.m_BackgroundColor = value; }
         }
 
-        public float NebulaIntensity
+        public AnimationCurve BackgroundIntensity
         {
             get { return this.m_BackgroundIntensity; }
             set { this.m_BackgroundIntensity = value; }
@@ -193,7 +195,7 @@ namespace AC.CSky
             set { this.m_StarsFieldColor = value; }
         }
 
-        public float StarsFieldIntensity
+        public AnimationCurve StarsFieldIntensity
         {
             get { return this.m_StarsFieldIntensity; }
             set { this.m_StarsFieldIntensity = value; }
@@ -250,19 +252,19 @@ namespace AC.CSky
             set { this.m_SunTheta = value; }
         }
 
-        public Color SunColor
+        public Gradient SunColor
         {
             get { return this.m_SunColor; }
             set { this.m_SunColor = value; }
         }
 
-        public float SunSize
+        public AnimationCurve SunSize
         {
             get { return this.m_SunSize; }
             set { this.m_SunSize = value; }
         }
 
-        public float SunIntensity
+        public AnimationCurve SunIntensity
         {
             get { return this.m_SunIntensity; }
             set { this.m_SunIntensity = value; }
@@ -291,19 +293,19 @@ namespace AC.CSky
             set { this.m_MoonTheta = value; }
         }
 
-        public Color MoonColor
+        public Gradient MoonColor
         {
             get { return this.m_MoonColor; }
             set { this.m_MoonColor = value; }
         }
 
-        public float MoonSize
+        public AnimationCurve MoonSize
         {
             get { return this.m_MoonSize; }
             set { this.m_MoonSize = value; }
         }
 
-        public float MoonIntensity
+        public AnimationCurve MoonIntensity
         {
             get { return this.m_MoonIntensity; }
             set { this.m_MoonIntensity = value; }

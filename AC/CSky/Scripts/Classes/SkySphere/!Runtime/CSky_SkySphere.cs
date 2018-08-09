@@ -29,7 +29,7 @@ namespace AC.CSky
 		#region |Fields|Color Correction|
 
         [SerializeField] private bool m_HDR = false; // Enable HDR.
-        [SerializeField] private float m_Exposure = 1.3f;  // Exposure.
+        [SerializeField, AC_CurveRange(0,0,1,5)] private AnimationCurve m_Exposure;// = AnimationCurve.Linear(0, 1.3f, 1, 1.3f);  // Exposure.
 
 		#endregion
 
@@ -155,7 +155,7 @@ namespace AC.CSky
 
 
 			// Update Celestials.
-			Vector3 sunPos  = CSky_MathV3.SphericalToCartesian(m_SunTheta, m_SunPI);
+			Vector3 sunPos  = CSky_MathV3.SphericalToCartesian(m_SunTheta, m_SunPI); 
 			Vector3 moonPos = CSky_MathV3.SphericalToCartesian(m_MoonTheta, m_MoonPI);
 			UpdateCelestials(sunPos, moonPos);
 
@@ -170,7 +170,7 @@ namespace AC.CSky
             else
                 Shader.EnableKeyword("CSky_HDR");
 
-            Shader.SetGlobalFloat("CSky_Exposure", m_Exposure);
+            Shader.SetGlobalFloat("CSky_Exposure", m_Exposure.Evaluate(EvaluateTimeBySun));
 
 			// Update Lighting.
 
@@ -206,7 +206,7 @@ namespace AC.CSky
             set { this.m_HDR = value; }
         }
 
-        public float Exposure
+        public AnimationCurve Exposure
         {
             get { return this.m_Exposure; }
             set { this.m_Exposure = value; }

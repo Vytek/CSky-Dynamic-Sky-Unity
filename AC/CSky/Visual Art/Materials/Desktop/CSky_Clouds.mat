@@ -59,11 +59,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 72a2405097910414196eba3a0e233fb0, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6ac7837cef765443a61b8e8570a1828, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex2:
-        m_Texture: {fileID: 2800000, guid: c6ac7837cef765443a61b8e8570a1828, type: 3}
+        m_Texture: {fileID: 2800000, guid: 72a2405097910414196eba3a0e233fb0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -97,7 +97,7 @@ Material:
     m_Floats:
     - CSky_HorizonFade: 0.3
     - _BumpScale: 1
-    - _Coverage: 4.92
+    - _Coverage: 0.4
     - _Cutoff: 0.5
     - _Density: 0.2
     - _DetailNormalMapScale: 1
@@ -105,13 +105,13 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: 2.1875
+    - _Intensity: 1.84375
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Saturation: 1
-    - _Scale: -0.18
+    - _Scale: 0.19
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.1
@@ -121,6 +121,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _Color: {r: 0.2073495, g: 0.23463751, b: 0.2618395, a: 2}
+    - _Color: {r: 0.21182339, g: 0.2882712, b: 0.364923, a: 2}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Speed: {r: 0.016666668, g: 0.01, b: -0.023333333, a: -0.1}
+    - _Speed: {r: 0.001, g: 0.001, b: -0.08, a: -0.02}
