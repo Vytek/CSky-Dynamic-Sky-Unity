@@ -23,7 +23,7 @@ Contact/Support: acxstorage@gmail.com
 # Some known problems
 - There is a problem in the calculations of the sidereal time in the calculations of the celestial bodies, this causes that the position of the moon and stars is not exact, this problem will be solved later on.
 
-- When an element of the skysphere is selected to be reflected in the reflection probe, the skybox is not reflected.
+- When an element of the skysphere is selected to be reflected in the reflection probe, the skybox is not reflected -Correction: this only happens with the background component.
 
 # Future
 At the moment I am working on a project in godot engine, I will return to work on this asset until version 2018.3 is available.
