@@ -16,9 +16,9 @@ MonoBehaviour:
   sphereLOD2: {fileID: 4300000, guid: b0df072daa3e6c84faf38e447a29a3ec, type: 2}
   sphereLOD3: {fileID: 4300000, guid: 95183bccf1eebd840953facfaeed1317, type: 2}
   quadMesh: {fileID: 4300000, guid: 8498b9f208ecb054b8d707d3d7311441, type: 2}
-  StarsLOD0: {fileID: 4300000, guid: b4ad320b111af4141b0834b9630bbf64, type: 2}
-  StarsLOD1: {fileID: 4300000, guid: 0cc86ded436184cca9a66b276a21a33b, type: 2}
-  StarsLOD2: {fileID: 4300000, guid: 1589e3cfa5ebd424385cc856aaf4ffac, type: 2}
+  StarsLOD0: {fileID: 4300000, guid: a49f5fd0568bb48c9af73bb4e2befde7, type: 2}
+  StarsLOD1: {fileID: 4300000, guid: 7943173fa7f15463298d6af10ba7ea31, type: 2}
+  StarsLOD2: {fileID: 4300000, guid: 9e032c6ef93de4ff7b3c4ee80687cfe2, type: 2}
   backgroundShader: {fileID: 4800000, guid: 42dbab1605b8a4347816031f47e33727, type: 3}
   starsFieldShader: {fileID: 4800000, guid: 42b0cc2fae51d4f9fad546b807096806, type: 3}
   sunShader: {fileID: 4800000, guid: dfc222c22ae814484abbe6e4039f2b91, type: 3}

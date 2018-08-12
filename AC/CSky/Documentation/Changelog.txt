@@ -37,3 +37,9 @@ v1.0.4
 - Added necessary curves and gradients.
 - The clouds were improved
 //--------------------------------------------------------------------------------------
+
+V1.0.4f2
+
+- Add more stars meshes.
+- Remplace clouds textures.
+//--------------------------------------------------------------------------------------
