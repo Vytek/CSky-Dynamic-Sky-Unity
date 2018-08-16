@@ -43,3 +43,11 @@ V1.0.4f2
 - Add more stars meshes.
 - Remplace clouds textures.
 //--------------------------------------------------------------------------------------
+
+
+V1.0.4f3
+
+- Improved stars.
+- Improved clouds.
+- Fixed dowside atmospheric scattering.
+//--------------------------------------------------------------------------------------

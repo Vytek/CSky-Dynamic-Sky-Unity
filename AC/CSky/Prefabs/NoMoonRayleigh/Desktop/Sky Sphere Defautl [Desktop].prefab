@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1525761515718758
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525761515718758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 765.8783, y: 51.303543, z: 107.32328}
   m_LocalScale: {x: 1900, y: 1900, z: 1900}
   m_Children:
   - {fileID: 4191973675535142}
@@ -439,7 +439,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424890790482634}
-  m_Mesh: {fileID: 4300000, guid: b4ad320b111af4141b0834b9630bbf64, type: 2}
+  m_Mesh: {fileID: 4300000, guid: c0179a3ed1d26456d90343443ac32363, type: 2}
 --- !u!33 &33196941918191818
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -570,8 +570,8 @@ MonoBehaviour:
   m_WavelengthR: 650
   m_WavelengthG: 570
   m_WavelengthB: 475
-  m_AtmosphereThickness: 1
-  m_SunBrightness: 30
+  m_AtmosphereThickness: 0.5
+  m_SunBrightness: 40
   m_SunAtmosphereTint:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -603,7 +603,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_SunIntensityFactor: 0.25
   m_MoonRayleigh: 0
-  m_MoonBrightness: 0.1
+  m_MoonBrightness: 0.05
   m_MoonAtmosphereTint:
     serializedVersion: 2
     key0: {r: 0, g: 0.1257606, b: 0.58823526, a: 1}
@@ -816,27 +816,27 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.44077632
+      time: 0.499248
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.49924648
-      value: 1
+      time: 0.5517062
+      value: 0.25
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1
+      value: 0.25
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_StarsFieldScintillation: 0.7
+  m_StarsFieldScintillation: 0.5
   m_StarsFieldScintillationSpeed: 0.5
   m_SunPI: -1.3265377
   m_SunTheta: 0.48012233

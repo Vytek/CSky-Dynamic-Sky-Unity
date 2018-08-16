@@ -48,8 +48,8 @@ inline void OpticalDepth(half dir, inout half3 sr, inout half3 sm)
 	sm = CSky_MieZenithLength      / zenith;
 }
 //=================================================================================================
-
 /*
+
 // Based in Nielsen paper, See Documentation: References.
 inline void OpticalDepth(float ray, inout float3 sr, inout float3 sm)
 {

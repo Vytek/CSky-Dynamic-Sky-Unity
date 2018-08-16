@@ -432,7 +432,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622534869871940}
-  m_Mesh: {fileID: 4300000, guid: 1589e3cfa5ebd424385cc856aaf4ffac, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 6cca2f39171f54d47a2a033155d69231, type: 2}
 --- !u!33 &33623128117809954
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -663,7 +663,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_SunIntensityFactor: 0.3
   m_MoonRayleigh: 0
-  m_MoonBrightness: 0.1
+  m_MoonBrightness: 0.022
   m_MoonAtmosphereTint:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 0.8901961}
@@ -906,21 +906,21 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.59822035
-      value: 1.21875
+      time: 0.596725
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1.21875
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_StarsFieldScintillation: 0.7
+  m_StarsFieldScintillation: 0.5
   m_StarsFieldScintillationSpeed: 0.5
   m_SunPI: -1.3120273
   m_SunTheta: 0.48045993

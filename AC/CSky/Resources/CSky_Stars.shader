@@ -110,25 +110,41 @@ Shader "AC/CSky/Stars"
 
 			#if defined(CSky_PROCEDURAL_PARTICLE_SPOT)
 
-				half g = clamp(_GlowSize * i.color.a, 0.35, 1);
+				//half g = clamp(_GlowSize * i.color.a, 0.35, 1);
 
-				color = Glow(i.texcoord, g);
+				color = Glow(i.texcoord, _GlowSize);
+
+				color *= color;
 
 			#else
 
-				color =  tex2D(_MainTex,  i.texcoord.xy ) ;
+				color = tex2D(_MainTex,  i.texcoord.xy );
+				//color *= color;
 
 			#endif
 			//===================================================================
 
-			color *= i.color.rgb * i.color.a;
+			color *= i.color.rgb * (i.color.a * _Intensity);
 
 			//===================================================================
 
-			color *= _Color * _Intensity;
+			color *= _Color ;
 			//===================================================================
 
-			color = lerp(color, color * tex2D(_NoiseTex, i.noiseCoords), _Scintillation);
+		
+			fixed3 c = fixed3(0,0,0);
+			
+			if(i.color.a >= 0.15)
+			{ 
+				c = tex2D(_NoiseTex, i.noiseCoords).rgb;
+				//color += 0.02;
+			}
+			else 
+			{ 
+				c = 1.0; //tex2D(_NoiseTex, i.noiseCoords).bbb;
+			}
+
+			color = lerp(color, color * c, _Scintillation);
 			//===================================================================
 
 			ColorCorrection(color);

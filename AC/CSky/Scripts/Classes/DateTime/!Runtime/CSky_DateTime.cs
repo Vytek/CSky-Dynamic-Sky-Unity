@@ -219,7 +219,7 @@ namespace AC.CSky
         /// </summary>
         private void RepeatDateTime()
         {
-            if (m_Year == 9999 && m_Month == 12 && m_Day == 31 && m_Timeline >= 23.999f)
+            if (m_Year == 9999 && m_Month == 12 && m_Day == 31 && m_Timeline >= 23.999999f)
             {
 
                 m_Year  = 1;
@@ -236,7 +236,7 @@ namespace AC.CSky
                 m_Month = 12;
                 m_Day   = 31;
 
-                m_Timeline = 23.999f;
+                m_Timeline = 23.999999f;
             }
         }
 

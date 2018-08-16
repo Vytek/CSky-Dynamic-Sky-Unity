@@ -9,16 +9,19 @@ Shader "AC/CSky/Simple Clouds"
 	Properties
 	{
 		
-		_NoiseTex("Noise Texture", 2D) = "white" {}
+		_CloudsTex("Clouds Texture", 2D) = "white" {}
 		//=================================================================
 
-		_NoiseTex2("Noise Texture 2", 2D) = "white" {}
+		_CoverageTex("Coverage Texture", 2D) = "white" {}
 		//=================================================================
 
 		_Color("Color", Color) = (1,1,1,1)
 		//=================================================================
 
 		_Intensity("Intensity", Float) = 1.0
+		//=================================================================
+
+		_Density("Density", Float) = 2
 		//=================================================================
 
 		_Coverage("Coverage", Float) = 1.0      
@@ -42,14 +45,15 @@ Shader "AC/CSky/Simple Clouds"
 		#include "CSky_AtmosphereCommon.cginc"
 		//===============================
 
-		sampler2D      _NoiseTex;
-		float4         _NoiseTex_ST;
+		sampler2D      _CloudsTex;
+		float4         _CloudsTex_ST;
 		//===============================
 
-		sampler2D      _NoiseTex2;
-		float4         _NoiseTex2_ST;
+		sampler2D      _CoverageTex;
+		float4         _CoverageTex_ST;
 		//===============================
 
+		uniform float  _Density;
 		uniform float  _Coverage;
 
 		//===============================
@@ -110,16 +114,19 @@ Shader "AC/CSky/Simple Clouds"
 			//=======================================================================
 
 			
-			half4 nt = tex2D(_NoiseTex, i.texcoord + (_Time.xx * _Speed.xy));
-			half4 nt2 = tex2D(_NoiseTex2, i.texcoord + (_Time.xx * _Speed.zw));
-		
+			half4 ct = tex2D(_CloudsTex, i.texcoord+ (_Time.xx * _Speed.xy));
 
+			half4 cct = tex2D(_CoverageTex, i.texcoord+ (_Time.xx * _Speed.zw));
 		
-			half4 col = (nt + nt2);
+		
+		
+			half4 col = ct + cct;
 
 			//col = saturate(col);
 
-			half a = saturate(smoothstep(col.a,0,0)-smoothstep(0, col.a,_Coverage));
+			half a = saturate(smoothstep(cct.a,0,0)-smoothstep(0, col.rgb,_Coverage));
+
+			col.a = a;
 
 			
 
@@ -128,21 +135,28 @@ Shader "AC/CSky/Simple Clouds"
 
 			//col = lerp(col*_Intensity,0, d);
 
-			col = 1.0-exp(-col*2);
+				col = 1.0-exp(-col*2*_Density);
 
-			col *= _Intensity;
+			col.rgb *= _Intensity;
 
+			col.rgb += MiePhaseSimplified(dot(worldPos, CSky_SunDirection.xyz), CSky_SunBetaMiePhase, CSky_SunMieScattering, CSky_SunMieColor).rgb;
+			col.rgb += MiePhaseSimplified(dot(worldPos, CSky_MoonDirection.xyz), CSky_MoonBetaMiePhase, CSky_MoonMieScattering, CSky_MoonMieColor).rgb;
 
-			a *=  HORIZON_FADE(worldPos.y);
+			col.rgb *=  (1.0/exp2((a) *_Density));
 
 			
+			
 
+			col.a *=  HORIZON_FADE(worldPos.y);
+
+		
+			//col = saturate(col);
 		
 
 			ColorCorrection(col.rgb);
 			//=======================================================================
 
-			return half4( col.rgb *_Color.rgb, a  );
+			return half4( col.rgb *_Color.rgb, col.a  );
 			//=======================================================================
 		}
 	ENDCG

@@ -823,20 +823,20 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.49924648
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_StarsFieldScintillation: 0.7
+  m_StarsFieldScintillation: 0.5
   m_StarsFieldScintillationSpeed: 0.5
   m_SunPI: -1.4538994
   m_SunTheta: 1.2554573

@@ -59,7 +59,7 @@ inline void AtmosphericScattering(float3 ray, out float3 inscatter, out float4 o
 	#endif*/
 
 	ray.y = saturate(ray.y);
-	ray = normalize(ray);
+	//ray = normalize(ray);
 	//======================================================================================================================================
 
 	float3 cameraPos = float3(0.0, CSky_kInnerRadius + CSky_kCameraHeight, 0.0);
@@ -147,9 +147,9 @@ inline void RayleighScattering(float3 ray, out float3 inscatter, int clampScatte
 		ray.y = abs(ray.y);
 	#endif*/
 
-	ray.y = saturate(ray.y);
+	//ray.y = saturate(ray.y);
 
-	ray = normalize(ray);
+	//ray = normalize(ray);
 	//==================================================================================================================================
 
 	float3 cameraPos = float3(0.0, CSky_kInnerRadius + CSky_kCameraHeight, 0.0);
