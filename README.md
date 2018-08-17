@@ -5,7 +5,7 @@ Dynamic Sky Sphere System for Unity 3d.
 Contact/Support: acxstorage@gmail.com
 
 # Features
-- Physically based shading.
+- Physically based atmosphere.
 - Per Pixel And Per Vertex Atmosphere Quality.
 - Two Atmosphere Models.
 - Moon Phases.
