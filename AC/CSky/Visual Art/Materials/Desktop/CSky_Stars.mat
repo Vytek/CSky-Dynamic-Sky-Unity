@@ -68,7 +68,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GlowSize: 0.52
+    - _GlowSize: 0.53
     - _Metallic: 0
     - _Mode: 0
     - _NoiseSize: 0.1
@@ -81,5 +81,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4044118, g: 0.7535497, b: 1, a: 1}
+    - _Color: {r: 0.43382353, g: 0.78914815, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

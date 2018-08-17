@@ -208,7 +208,7 @@ namespace AC.CSky
 
                     if (m_AtmosphereShader.enumValueIndex == 1)
                     {
-                        EditorGUILayout.PropertyField(m_SunIntensityFactor, new GUIContent(m_MoonRayleigh.boolValue ? "Sun Intensity Factor" : "Day Intensity Factor"));
+                        EditorGUILayout.PropertyField(m_SunIntensityFactor, new GUIContent(m_MoonRayleigh.boolValue ? "Sun Extinction Factor" : "Day Intensity Factor"));
                         AC_EditorGUIUtility.Separator(2);
                         EditorGUILayout.Separator();
                     }
@@ -226,7 +226,7 @@ namespace AC.CSky
 
                     if (m_AtmosphereShader.enumValueIndex == 1)
                     {
-                        EditorGUILayout.PropertyField(m_MoonIntensityFactor, new GUIContent("Night Intensity Factor"));
+                        EditorGUILayout.PropertyField(m_MoonIntensityFactor, new GUIContent("Night Extinction Factor"));
                         AC_EditorGUIUtility.Separator(2);
                         EditorGUILayout.Separator();
                     }
