@@ -164,7 +164,7 @@ Shader "AC/CSky/Simple Clouds"
 	SubShader
 	{
 
-		Tags{"Queue"="Background+1600" "RenderType"="Background" "IgnoreProjector"="True"}
+		Tags{"Queue"="Transparent+1600" "RenderType"="Background" "IgnoreProjector"="True"}
 		//==============================================================================================
 
 		Pass
