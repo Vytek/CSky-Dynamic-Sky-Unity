@@ -25,8 +25,11 @@ Contact/Support: acxstorage@gmail.com
 
 - When an element of the skysphere is selected to be reflected in the reflection probe, the skybox is not reflected -Correction: this only happens with the background component.
 
+-The preetham model is not physically correct in its entirety, nor is the effect that the moon has on the atmosphere, this was modified to get more beautiful nights, the field of stars needs corrections, nor is it physically correct.
+
 # Future
-At the moment I am working on a project in godot engine, I will return to work on this asset until version 2018.3 is available.
+I will try to polish this asset in my free time , but I do not promise anything, maybe this asset will be useful to build your own dynamic sky.
+
 
 ![screenshot_1](https://user-images.githubusercontent.com/32694412/31422103-e4df2f26-ae08-11e7-8a21-32fba3bd3e97.png)
 ![screenshot_2](https://user-images.githubusercontent.com/32694412/31422104-e509a8c8-ae08-11e7-9456-ce0c32c784c5.png)
