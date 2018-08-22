@@ -25,7 +25,7 @@ Contact/Support: acxstorage@gmail.com
 
 - When an element of the skysphere is selected to be reflected in the reflection probe, the skybox is not reflected -Correction: this only happens with the background component.
 
--The preetham model is not physically correct in its entirety, nor is the effect that the moon has on the atmosphere, this was modified to get more beautiful nights, the field of stars needs corrections, nor is it physically correct.
+- The preetham model is not physically correct in its entirety, nor is the effect that the moon has on the atmosphere, this was modified to get more beautiful nights, the field of stars needs corrections, nor is it physically correct.
 
 # Future
 I will try to polish this asset in my free time , but I do not promise anything, maybe this asset will be useful to build your own dynamic sky.
