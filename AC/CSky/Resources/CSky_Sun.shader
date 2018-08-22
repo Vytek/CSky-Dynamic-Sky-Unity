@@ -91,7 +91,9 @@ Shader "AC/CSky/Sun"
 
 				#if defined(CSky_PROCEDURAL_PARTICLE_SPOT)
 
-					color = pow(DiscGlow(i.texcoord, _DiscSize, _GlowSize), 2.5);
+					color = DiscGlow(i.texcoord, _DiscSize, _GlowSize);
+					color *= color;
+				
 
 				#else
 

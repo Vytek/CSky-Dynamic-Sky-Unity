@@ -100,11 +100,11 @@ Shader "AC/CSky/Stars"
 			float magnitude = v.color.a;
 
 
-			if(magnitude >= 0.44)
-				magnitude *= 5;
+			if(magnitude < 0.55)
+				magnitude *= 0.3;
 
 
-			v.color.a = magnitude * 0.2;
+			v.color.a = magnitude;
 			v.color.a *= _Intensity;
 
 
@@ -125,7 +125,7 @@ Shader "AC/CSky/Stars"
 
 				//half g = clamp(_GlowSize * i.color.a, 0.35, 1);
 
-				color = (i.color.rgb * Glow(i.texcoord, _GlowSize)) + Glow(i.texcoord,_GlowSize *0.75);
+				color = (i.color.rgb * Glow(i.texcoord, _GlowSize));
 
 				color *= color;
 
@@ -141,13 +141,13 @@ Shader "AC/CSky/Stars"
 
 			//===================================================================
 
-			color *= _Color * 0.5 ;
+			color *= _Color;
 			//===================================================================
 
 		
-			fixed c = _Scintillation;
+			fixed c = lerp(_Scintillation*0.5, _Scintillation, i.color.a);
 			
-			if(i.color.a >= 0.44)
+			/*if(i.color.a >= 0.22)
 			{ 
 
 				//color *= 4;
@@ -157,9 +157,9 @@ Shader "AC/CSky/Stars"
 			else 
 			{ 
 				c = _Scintillation*0.5; //tex2D(_NoiseTex, i.noiseCoords).bbb;
-			}
+			}*/
 
-			color = lerp(color, color * tex2D(_NoiseTex, i.noiseCoords).rgb, c);
+			color = lerp(color, color * tex2D(_NoiseTex, i.noiseCoords).rgb, saturate(c));
 			//===================================================================
 
 			ColorCorrection(color);

@@ -98,9 +98,9 @@ Shader "AC/CSky/Simple Clouds"
 			o.normal   = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
 			//=======================================================================
 
-			o.worldPos = normalize(mul((float3x3)unity_ObjectToWorld, v.vertex.xyz));
-			o.worldPos.y += 0.3;
-			o.texcoord = o.worldPos.xz / o.worldPos.y; //(o.vertex.xy / o.vertex.w + 1) * 0.5;
+			o.worldPos = /*SKY_SPHERE_WORLD_POS(v.vertex);*/ normalize(mul((float3x3)unity_ObjectToWorld, v.vertex.xyz));
+
+			o.texcoord = o.worldPos.xz / (o.worldPos.y+0.3); //(o.vertex.xy / o.vertex.w + 1) * 0.5;
 			o.texcoord *= _Scale;
 			//=======================================================================
 
@@ -117,43 +117,50 @@ Shader "AC/CSky/Simple Clouds"
 			half4 ct = tex2D(_CloudsTex, i.texcoord+ (_Time.xx * _Speed.xy));
 
 			half4 cct = tex2D(_CoverageTex, i.texcoord+ (_Time.xx * _Speed.zw));
+
+			
 		
 		
 		
 			half4 col = ct + cct;
+			
 
-			//col = saturate(col);
+				
 
 			half a = saturate(smoothstep(cct.a,0,0)-smoothstep(0, col.rgb,_Coverage));
 
 			col.a = a;
 
+		
+
+
+
+			col = 1.0-exp(-col*2*_Density);
+
+
+			col.rgb *= _Intensity + MiePhaseSimplified(dot(worldPos, CSky_SunDirection.xyz), CSky_SunBetaMiePhase, CSky_SunMieScattering, CSky_SunMieColor).rgb*60 + 
+
+						MiePhaseSimplified(dot(worldPos, CSky_MoonDirection.xyz), CSky_MoonBetaMiePhase, CSky_MoonMieScattering, CSky_MoonMieColor).rgb*60;;
+
 			
-
-			//float d = 1.0-exp(-col *2);
-
-
-			//col = lerp(col*_Intensity,0, d);
-
-				col = 1.0-exp(-col*2*_Density);
-
-			col.rgb *= _Intensity;
-
-			col.rgb += MiePhaseSimplified(dot(worldPos, CSky_SunDirection.xyz), CSky_SunBetaMiePhase, CSky_SunMieScattering, CSky_SunMieColor).rgb;
-			col.rgb += MiePhaseSimplified(dot(worldPos, CSky_MoonDirection.xyz), CSky_MoonBetaMiePhase, CSky_MoonMieScattering, CSky_MoonMieColor).rgb;
+				
 
 			col.rgb *=  (1.0/exp2((a) *_Density));
 
-			
-			
+		
 
+		
 			col.a *=  HORIZON_FADE(worldPos.y);
+
+		
 
 		
 			//col = saturate(col);
 		
 
 			ColorCorrection(col.rgb);
+				
+			
 			//=======================================================================
 
 			return half4( col.rgb *_Color.rgb, col.a  );
@@ -164,7 +171,7 @@ Shader "AC/CSky/Simple Clouds"
 	SubShader
 	{
 
-		Tags{"Queue"="Transparent+1600" "RenderType"="Background" "IgnoreProjector"="True"}
+		Tags{"Queue"="Transparent+1600" "RenderType"="Transparent" "IgnoreProjector"="True"}
 		//==============================================================================================
 
 		Pass
