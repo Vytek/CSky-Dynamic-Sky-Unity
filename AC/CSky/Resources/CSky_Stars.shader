@@ -1,4 +1,4 @@
-﻿//////////////////////////////////
+//////////////////////////////////
 /// CSky.
 /// Stars.
 /// Description: Stars Shader.
@@ -24,6 +24,17 @@ Shader "AC/CSky/Stars"
 		_GlowSize("Glow Size", Float) = 0.5
 		//==============================================
 
+
+		_Visibility("Visibility", Float) = 0.35
+		//==============================================
+
+
+		_AttenuationThreshold("Attenuation Threshold", Float) = 0.5
+		//==============================================
+
+		_Attenuation("Attenuation", Float) = 2.7
+		//==============================================
+
 		CSky_HorizonFade("Horizon Fade", Float) = 0.0
 		//==============================================
 	}
@@ -45,6 +56,20 @@ Shader "AC/CSky/Stars"
 		// Scintillation.
 		uniform half _ScintillationSpeed;
 		uniform half _Scintillation;
+		//================================
+
+		uniform float _Visibility;
+		//================================
+
+		uniform float _AttenuationThreshold;
+		//=================================
+
+		uniform float _Attenuation;
+
+		
+	
+	
+		//================================
 		//================================
 
 
@@ -96,14 +121,16 @@ Shader "AC/CSky/Stars"
 			o.noiseCoords = (o.worldPos.xz / (o.worldPos.y+0.03) * _NoiseSize) + _Time.xx * _ScintillationSpeed;
 
 
-
-			float magnitude = v.color.a;
-
-
-			if(magnitude < 0.55)
-				magnitude *= 0.3;
+			
 
 
+			float magnitude = v.color.a/_Visibility; //((v.color.a + 1.44) / _MagnitudeDivider);
+
+		
+			if(magnitude < _AttenuationThreshold)
+				magnitude /= max(1,_Attenuation);
+			
+		
 			v.color.a = magnitude;
 			v.color.a *= _Intensity;
 
@@ -161,6 +188,11 @@ Shader "AC/CSky/Stars"
 
 			color = lerp(color, color * tex2D(_NoiseTex, i.noiseCoords).rgb, saturate(c));
 			//===================================================================
+
+
+			//half scintillation = lerp(magnitude, magnitude * tex2D(_NoiseTex, o.noiseCoords), saturate(lerp(_Scintillation * 0.5, _Scintillation, magnitude))).a;
+
+			//color *= scintillation;
 
 			ColorCorrection(color);
 			//===================================================================
