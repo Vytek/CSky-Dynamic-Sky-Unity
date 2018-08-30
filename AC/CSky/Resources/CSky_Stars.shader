@@ -25,14 +25,14 @@ Shader "AC/CSky/Stars"
 		//==============================================
 
 
-		_Visibility("Visibility", Float) = 0.4
+		_Visibility("Visibility", Float) = 0.7
 		//==============================================
 
 
 		_AttenuationThreshold("Attenuation Threshold", Float) = 0.5
 		//==============================================
 
-		_Attenuation("Attenuation", Float) = 2.0
+		_Attenuation("Attenuation", Float) = 3.4
 		//==============================================
 
 		CSky_HorizonFade("Horizon Fade", Float) = 0.0
