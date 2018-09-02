@@ -28,7 +28,7 @@ This asset was part of my game of survival, but being a game made for fun I'm in
 
 # Some known issues
 
--Currently there are some problems, so you may need to make several adjustments.
+Currently there are some problems, so you may need to make several adjustments.
 
 - There are some problems with the calculations of the celestial bodies, that of the sun seems to have the correct coordinates, but the moon and the stars do not, i think the problem is in a bad calculation in sidereal time, you can correct this problem by consulting the entances in the description of the class.
 
