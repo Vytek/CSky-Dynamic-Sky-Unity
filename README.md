@@ -36,6 +36,9 @@ Unfortunately I can not continue working on this asset, this asset was being use
 - The magnitude of the stars is based on real data, however they have been adjusted to the eye, the shader is not physically correct, it is done to have a little more artistic control.
 
 
+-The clouds are crap and are not optimized, you should not use them, they are just to give a small example of how to add clouds through C # code, the shader is written to the race
+
+
 
 
 ![screenshot_1](https://user-images.githubusercontent.com/32694412/31422103-e4df2f26-ae08-11e7-8a21-32fba3bd3e97.png)
