@@ -24,8 +24,6 @@ Contact/Support: acxstorage@gmail.com
 
 The asset is deprecated, so it will not have updates.
 
-This asset was part of my game of survival, but being a game made for fun I'm in no hurry, I decided to wait for some interesting features to stop being in preview, to implement it in my game and therefore in the sky of this.
-
 # Some known issues
 
 Currently there are some problems, so you may need to make several adjustments.
