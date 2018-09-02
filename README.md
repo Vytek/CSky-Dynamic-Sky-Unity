@@ -28,18 +28,20 @@ This asset was part of my game of survival, but being a game made for fun I'm in
 
 # Some known issues
 
--There are some problems with the calculations of the celestial bodies, that of the sun seems to have the correct coordinates, but the moon and the stars do not, i think the problem is in a bad calculation in sidereal time, you can correct this problem by consulting the entances in the description of the class.
+-Currently there are some problems, so you may need to make several adjustments.
 
--The background element creates conflicts with the skybox in the reflection probe, it can be a problem in the shader.
+- There are some problems with the calculations of the celestial bodies, that of the sun seems to have the correct coordinates, but the moon and the stars do not, i think the problem is in a bad calculation in sidereal time, you can correct this problem by consulting the entances in the description of the class.
 
--The preetham atmospheric scattering model  is adjusted to the eye, so it may not be physically correct in its entirety, the adjustments are in the method called BetaMie (C#) and finalFex (cginclude).
+- The background element creates conflicts with the skybox in the reflection probe, it can be a problem in the shader.
 
--The color of the night depends on the data of the sun, so it is not physically correct in its entirety, this I did to simulate the effect of the moon on the atmosphere without doing many extra calculations.
+- The preetham atmospheric scattering model  is adjusted to the eye, so it may not be physically correct in its entirety, the adjustments are in the method called BetaMie (C#) and finalFex (cginclude).
+
+- The color of the night depends on the data of the sun, so it is not physically correct in its entirety, this I did to simulate the effect of the moon on the atmosphere without doing many extra calculations.
 
 - The magnitude of the stars is based on real data, however they have been adjusted to the eye, the shader is not physically correct, it is done to have a little more artistic control.
 
 
--The clouds are crap and are not optimized, you should not use them, they are just to give a small example of how to add clouds through C # code, the shader is written in a hurry
+- The clouds are crap and are not optimized, you should not use them, they are just to give a small example of how to add clouds through C # code, the shader is written in a hurry
 .
 
 
