@@ -34,6 +34,8 @@ Currently there are some problems, so you may need to make several adjustments.
 
 - The background element creates conflicts with the skybox in the reflection probe, it can be a problem in the shader.
 
+# Things to keep in mind
+
 - The color of the night depends on the data of the sun, so it is not physically correct in its entirety, this I did to simulate the effect of the moon on the atmosphere without doing many extra calculations.
 
 - The magnitude of the stars is based on real data, but the shader is not based on physics, see http://astronexus.com/node/34
