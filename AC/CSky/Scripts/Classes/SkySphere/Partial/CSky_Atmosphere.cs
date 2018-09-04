@@ -61,8 +61,8 @@ namespace AC.CSky
         #region |Fields|Mie|
 
         // Common.
-        [SerializeField, Range(0.0f, 0.10f)] private float m_Mie = 0.010f;
-        [SerializeField, Range(0.0f, 1f)] private float m_Turbidity = 0.1f; // Only in preetham model.
+        [SerializeField, Range(0.0f, 0.10f)] private float m_Mie = 0.010f; 
+        [SerializeField, Range(0.001f, 1f)] private float m_Turbidity = 1f; // Only in preetham model.
 
         // Sun
         [SerializeField] private Gradient m_SunMieColor = new Gradient();
@@ -324,18 +324,26 @@ namespace AC.CSky
             };
 
             // Beta Mie.
-            Vector3 k = new Vector3(0.685f, 0.679f, 0.670f);
-            float c = (0.2f * m_Turbidity) * 10e-18f;
-            float mieFactor = 0.434f * c * Mathf.PI;
+            Vector3 k = new Vector3(685f, 679f, 670f);
+            float c = (0.2f * m_Turbidity) * 10f;
+            float mieFactor = 434f * c * Mathf.PI;
             const float v = 4.0f;
-            float mie = (m_Mie * 1e+1f); // Adjust.
+            //float mie = (m_Mie * 1e+1f); // Adjust.
 
             Vector3 BetaMie = new Vector3()
             {
-                x = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) / lambda.x, v - 2.0f) * k.x) * mie,
-                y = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) / lambda.y, v - 2.0f) * k.y) * mie,
-                z = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) / lambda.z, v - 2.0f) * k.z) * mie
+                x = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) /m_WavelengthR * 1e+2f , v - 2.0f) * k.x) ,
+                y = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) / m_WavelengthG*1e+2f, v - 2.0f) * k.y)  ,
+                z = (mieFactor * Mathf.Pow((2.0f * Mathf.PI) / m_WavelengthB  *1e+2f, v - 2.0f) * k.z) 
             };
+
+            
+
+            //BetaMie *= m_Mie;
+
+            BetaMie.x = Mathf.Pow(BetaMie.x,-1.0f);
+            BetaMie.y = Mathf.Pow(BetaMie.y,-1.0f);
+            BetaMie.z = Mathf.Pow(BetaMie.z,-1.0f);
             #endregion
 
 
