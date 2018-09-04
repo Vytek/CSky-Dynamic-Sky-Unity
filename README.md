@@ -22,26 +22,24 @@ Contact/Support: acxstorage@gmail.com
 
 # Future
 
-The asset is deprecated, so it will not have updates.
+The asset is deprecated, so it will not have updates from now.
 
 # Some known issues
 
 Currently there are some problems, so you may need to make several adjustments.
 
-- There are some problems with the calculations of the celestial bodies, that of the sun seems to have the correct coordinates, but the moon and the stars do not, i think the problem is in a bad calculation in sidereal time, you can correct this problem by consulting the links in the description of the class.
+- There are some errors with the calculations of the celestial bodies, I believe that the error is in the part of sidereal time, you can consult the following links that can help to correct these problems:
+-  See: http://www.stjarnhimlen.se/comp/ppcomp.html
+-  See: http://stjarnhimlen.se/comp/tutorial.html
 
 - The background element creates conflicts with the skybox in the reflection probe, it can be a problem in the shader.
 
-- The preetham atmospheric scattering model  is adjusted to the eye, so it may not be physically correct in its entirety, the adjustments are in the method called BetaMie (C#) and finalFex (cginclude).
-
 - The color of the night depends on the data of the sun, so it is not physically correct in its entirety, this I did to simulate the effect of the moon on the atmosphere without doing many extra calculations.
 
-- The magnitude of the stars is based on real data, however they have been adjusted to the eye, the shader is not physically correct, it is done to have a little more artistic control.
-
+- The magnitude of the stars is based on real data, but the shader is not based on physics, see http://astronexus.com/node/34
 
 - The clouds are crap and are not optimized, you should not use them, they are just to give a small example of how to add clouds through C # code, the shader is written in a hurry
 .
-
 
 ![screenshot_1](https://user-images.githubusercontent.com/32694412/31422103-e4df2f26-ae08-11e7-8a21-32fba3bd3e97.png)
 ![screenshot_2](https://user-images.githubusercontent.com/32694412/31422104-e509a8c8-ae08-11e7-9456-ce0c32c784c5.png)
